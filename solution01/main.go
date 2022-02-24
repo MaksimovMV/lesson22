@@ -13,6 +13,7 @@ func countNumbersAfterThisNumber(a [n]int, num int) int {
 	for i := 0; i < n; i++ {
 		if a[i] == num {
 			numbersAfterThisNum = n - 1 - i
+			break
 		}
 	}
 	return numbersAfterThisNum

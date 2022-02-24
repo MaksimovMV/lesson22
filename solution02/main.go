@@ -8,11 +8,23 @@ const n = 12
 
 func firstIndexOfNum(a [n]int, num int) (index int) {
 	index = -1
-	for i := 0; i < n; i++ {
-		if a[i] == num {
-			index = i
-			return
+	min := 0
+	max := n - 1
+
+	for max >= min {
+		middle := (max + min) / 2
+		if a[middle] == num {
+			index = middle
+			break
+		} else if a[middle] > num {
+			max = middle - 1
+		} else {
+			min = middle + 1
 		}
+	}
+
+	for index > 0 && index == num {
+		index--
 	}
 	return
 }
